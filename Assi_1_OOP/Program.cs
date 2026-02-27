@@ -71,6 +71,43 @@ namespace Assi_1_OOP
 
             // Faster Development
 
+            /////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine();
+
+            Console.Write("Enter Movie Name: ");
+            string movie = Console.ReadLine();
+
+            Console.Write("Choose Ticket Type (0 = Standard, 1 = VIP, 2 = IMAX): ");
+            TicketType type = (TicketType)int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Seat Row (A,B,C...): ");
+            char row = char.Parse(Console.ReadLine());
+
+            Console.Write("Enter Seat Number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Price: ");
+            double price = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter Discount Amount: ");
+            double discount = double.Parse(Console.ReadLine());
+
+            Seat seat = new Seat(row, number);
+
+            Ticket ticket = new Ticket(movie, type, seat, price);
+
+            Console.WriteLine();
+
+            Console.WriteLine("===== Ticket Info =====");
+            ticket.PrintTicket();
+
+            ticket.ApplyDiscount(ref discount);
+
+            //double total = ticket.CalcTotal(14);
+
+            Console.WriteLine();
+            Console.WriteLine("===== After Discount =====");
+            ticket.PrintTicket();
 
         }
     }
